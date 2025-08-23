@@ -34,7 +34,9 @@ def get_actual_url(request, short_code):
         stat, flag = Statistics.objects.get_or_create(pk = 1)
         stat.total_clicks += 1
         stat.save()
-        return redirect(existing.actual_url)
+        if existing.actual_url.startswith("http"):
+            return redirect(existing.actual_url)
+        return redirect("http://"+existing.actual_url)
     return Response({"error":"URL not found"}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
