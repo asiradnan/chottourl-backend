@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping app
-        run: |
-          run: curl -s https://u.asiradnan.com/api/v1/stats
+        run: curl -s https://u.asiradnan.com/api/v1/stats
 
             
