@@ -1,0 +1,15 @@
+name: Keep DB Alive
+on:
+  schedule:
+    - cron: '0 0 * * *' 
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping app
+        run: |
+          run: curl -s https://u.asiradnan.com/api/v1/stats
+
+            
