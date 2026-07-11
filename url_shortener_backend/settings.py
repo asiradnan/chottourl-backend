@@ -22,14 +22,17 @@ CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders',
-    'rest_framework',
-    'main',
     'drf_spectacular',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    
+    'rest_framework',
+    'corsheaders',
+    
+    'main',
+    'accounts_shadow'
 ]
 
 MIDDLEWARE = [
@@ -82,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'HOST': os.getenv('DB_HOST'),
-        'PORT': '6543',
+        'PORT': os.getenv('DB_PORT'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD')
     }
